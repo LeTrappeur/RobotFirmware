@@ -3,10 +3,10 @@ RobotFirmware
 Simple autonomous robot using the Arduino for hardware controlling and the Raspberry Pi for processing.
 
 Features for V1 :
-Robot vehicle
-Obstacles avoidance using ultrasound
-Can be remote controlled by bluetooth
-Can follow a tennis ball
+* Robot vehicle
+* Obstacles avoidance using ultrasound
+* Can be remote controlled by bluetooth
+* Can follow a tennis ball
 
 Arduino
 -------
