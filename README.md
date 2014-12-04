@@ -1,6 +1,6 @@
 RobotFirmware
 =============
-Simple autonomous robot using the Arduino for hardware controlling and the Raspberry Pi for processing.
+Simple autonomous robot using the Arduino for controlling and the Raspberry Pi for processing.
 
 Features for V1 :
 * Robot vehicle
