@@ -14,6 +14,16 @@ CameraTracker::~CameraTracker()
 
 void CameraTracker::run()
 {
+    SimpleSerial serial("COM3",9600);
+
+    serial.writeChar('1');
+    boost::this_thread::sleep(boost::posix_time::seconds(2));
+    serial.writeChar('0');
+    boost::this_thread::sleep(boost::posix_time::seconds(2));
+    serial.writeChar('2');
+    boost::this_thread::sleep(boost::posix_time::seconds(2));
+    serial.writeChar('0');
+    boost::this_thread::sleep(boost::posix_time::seconds(2));
     //some boolean variables for different functionality within this
 	//program
     bool trackObjects = true;
