@@ -21,7 +21,7 @@ public:
     : io(), serial(io)
     {
         serial.open(port);
-        boost::this_thread::sleep(boost::posix_time::seconds(2)); // /!\ arduino needs time to start serial because openning serial trigger bootloader
+        boost::this_thread::sleep(boost::posix_time::seconds(2)); // /!\ arduino needs time to start serial because openning serial triggers bootloader
         serial.set_option(boost::asio::serial_port_base::baud_rate(baud_rate));
         serial.set_option(boost::asio::serial_port_base::flow_control( boost::asio::serial_port_base::flow_control::none ));
         serial.set_option(boost::asio::serial_port_base::parity( boost::asio::serial_port_base::parity::none ));
@@ -89,13 +89,15 @@ private:
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
+#include "RaspiCamCV.h"
+
 //values are set for a blue color in a typical room envir.
-const int H_MIN = 54;
-const int H_MAX = 118;
-const int S_MIN = 70;
-const int S_MAX = 134;
-const int V_MIN = 40;
-const int V_MAX = 108;
+const int H_MIN = 25;
+const int H_MAX = 250;
+const int S_MIN = 180;
+const int S_MAX = 255;
+const int V_MIN = 0;
+const int V_MAX = 255;
 //default capture width and height
 const int FRAME_WIDTH = 640;
 const int FRAME_HEIGHT = 480;
@@ -117,6 +119,7 @@ class CameraTracker
         void run();
     protected:
     private:
+        SimpleSerial* serial;
         void morphOps(cv::Mat& thresh);
         void trackFilteredObject(int& x, int& y, cv::Mat threshold, cv::Mat& cameraFeed);
 };

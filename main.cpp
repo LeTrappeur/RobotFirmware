@@ -1,9 +1,12 @@
 #include <iostream>
 
+#include "CameraTracker.h"
+
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    CameraTracker cameraTracker;
+    cameraTracker.run();
     return 0;
 }
